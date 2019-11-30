@@ -1,0 +1,606 @@
+<!doctype html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+   
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/souye.css"/>
+ 
+</head>
+<body>
+     <div id="top2">
+
+          <div class="b1">
+            <a href="">
+              <img  src="img/picture/pic_logo_header@1x.png" alt=""/>
+            </a>
+          </div>
+          <div class="b2">
+              <input type="text" placeholder="请输入您想要的产品" >
+              <a href=""><img src="img/picture/ic_search@1x.png" alt=""/></a>
+          </div>
+          <div class="b3">
+              <a href="gwc.html">
+                  <img src="img/picture/ic_shopping@1x.png" alt=""/>我的购物车
+              </a>
+          </div>
+          </div>
+  <div id="nav">
+          <div >
+              <ul class="nav2">
+                  <li><a href="#">首页</a></li>
+                  <li><a href="#">体检</a></li>
+                  <li><a href="#">团体体检</a></li>
+                  <li><a href="#">高端君安</a></li>
+                  <li><a href="#">挂号</a></li>
+                  <li><a href="#">体检分院</a></li>
+                  <li><a href="#">体检宝</a></li>
+              </ul>
+          </div>
+          <div>
+              <ul class="nav3">
+                  <li><a class="hf1" href="dl.html">登录</a></li>
+                  <li><a href="#">|</a></li>
+                  <li><a class="b4"  href="zc.html">注册</a></li>
+              </ul>
+          </div>
+        </div>
+        <main id="main">
+            <div id="banner">
+              <div id="btn-left"></div>
+              <ul id="ul-imgs" style="width:9600px; margin-left:0px;">
+                <li><a href="javascript:;"><img src="img/picture/1565847848460263.jpg"></a></li>
+                <li><a href="javascript:;"><img src="img/picture/1566271323786510.jpg"></a></li>
+                <li><a href="javascript:;"><img src="img/picture/1547711410706610.jpg"></a></li>
+                <li><a href="javascript:;"><img src="img/picture/1553243074570444.jpg"></a></li>
+                <!--注意！最后li个数要比实际图片张数多1，最后一个li里的img是重复第一张li的图片-->
+                <li><a href="javascript:;"><img src="img/picture/1565847848460263.jpg"></a></li>
+              </ul>
+              <ul id="ul-idxs">
+                <!--虽然li个数比实际图片张数多1，但小圆点的个数不必多1-->
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+              <div id="btn-right"></div>
+            </div>
+          </main>
+       <script>
+          var i=0;
+          var LIWIDTH=1920;
+          var DURATION=500;
+          var LICOUNT=4;
+          var ulImgs=document.getElementById("ul-imgs");
+          var ulIdxs=document.getElementById("ul-idxs");
+          var lis=ulIdxs.children;
+          function  moveTo(to){
+              if(to==undefined){
+                  to=i+1;
+              }
+              if(i==0){
+                  if(to>i){
+                      ulImgs.className="transition";
+                  }else{
+                    ulImgs.className="";
+          ulImgs.style.marginLeft=-LIWIDTH*LICOUNT+"px";
+          setTimeout(function(){
+            moveTo(LICOUNT-1);
+          },100);
+          return;
+        }
+      }
+      i=to;
+      ulImgs.style.marginLeft=-i*LIWIDTH+"px";
+      for(var li of lis){
+        li.className=""
+      }
+      console.log(i);
+      if(i==LICOUNT){
+        i=0;
+        setTimeout(function(){
+          ulImgs.className="";
+          ulImgs.style.marginLeft=0;
+        },DURATION)
+      }
+      lis[i].className="active";
+    }
+  </script>
+  <script>
+    var btnLeft=document.getElementById("btn-left");
+    var btnRight=document.getElementById("btn-right");
+    var canClick=true;
+    btnRight.onclick=function(){
+      move(1)
+    }
+    function move(n){
+      if(canClick){
+        console.log(i+n);
+        moveTo(i+n);
+        canClick=false;
+        setTimeout(function(){
+          canClick=true;
+        },DURATION+100);
+      }
+    }
+    btnLeft.onclick=function(){
+      move(-1);
+    }
+  </script>
+  <script>
+    var interval=3000;
+    var timer=setInterval(function(){
+      moveTo()
+    },3000);
+    var banner=document.getElementById("banner");
+    banner.onmouseover=function(){
+      clearInterval(timer);
+    }
+    banner.onmouseout=function(){
+      timer=setInterval(function(){
+        moveTo()
+      },3000);
+    }
+  </script>
+  <script>
+    var ulIdxs=document.getElementById("ul-idxs");
+    var canClick=true;
+    ulIdxs.onclick=function(e){
+      if(canClick){
+        var li=e.target;
+        if(li.nodeName=="LI"){
+          if(li.className!=="active"){
+            for(var i=0;i<lis.length;i++){
+              if(lis[i]==li){
+                break;
+              }
+            }
+            moveTo(i);
+            setTimeout(function(){
+              canClick=true;
+            },DURATION);
+          }
+        }
+      }
+    }
+  </script>
+    <div id="zhong2">
+           <ul class="liebiao3">
+              <li class="li2">
+                  <a href=""><img src="img/picture/ic_remai.png" alt="">体检套餐</a>
+              </li>
+              <li>
+                  <a href=""><img src="img/picture/ic_zhuanxtijian.png" alt="">专项检查</a>
+              </li>
+              <li>
+                  <a href=""><img src="img/picture/ic_jiyin.png" alt="">基因检测</a>
+              </li>
+              <li>
+                  <a href=""><img src="img/picture/ic_heci.png" alt="">高端磁核</a>
+              </li>
+              </ul>
+        </div>
+      <div id="zhong3">
+         <ul class="liebiao4">
+            <li>
+            <a href=""><img src="img/picture/pic_exposure_01@1x.jpg" alt=""></a>
+            </li>
+            <li>
+            <a href=""><img src="img/picture/pic_exposure_02@1x.jpg" alt=""></a>
+            </li>
+            <li>
+            <a href=""><img src="img/picture/pic_exposure_03@1x_2.jpg" alt=""></a>
+            </li>
+            <li>
+            <a href=""><img src="img/picture/pic_exposure_04@1x.jpg" alt=""></a>
+            </li>
+         </ul>
+      </div>
+     <div class="zhong5">
+    <div class="ex2">企业团检专区<a href="">查看更多</a></div>
+    <div class="tp4">
+      <a href="spgm.html"><img src="img/picture/1562296105-898395.jpg" alt=""/></a>
+   </div>
+    <ul class="liebiao5">
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/1556098101-265464.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选A 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥388.00</span><del class="xg">616.00</del>
+                </div>
+            </a>
+        </li>
+
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/1537929615-843624.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选A 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥515.00</span><del class="xg">823.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/1556098111-299381.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选C 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥635.00</span><del class="xg">1049.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/1556098047-726261.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选D 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥698.00</span><del class="xg">1180.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/1556098134-962898.jpg" alt=""/>
+                </div>
+                <div  class="uname">爱康国宾 团体中层A 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥591.00</span><del class="xg">616.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                    <img src="img/picture/1556098139-640308.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体高管A 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥750.00</span><del class="xg">1271.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                    <img src="img/picture/1556098161-254673.jpg" alt=""/>
+                </div>
+                <div  class="uname">爱康国宾 团体高管B 体检套餐(男女单人用)</div>
+                <div>
+                    <span class="jg">￥980.00</span><del class="xg">1480.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                    <img src="img/picture/1556098126-140127.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选D 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥755.00</span><del class="xg">1233.00</del>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="zhong5">
+    <div class="ex2">基因检测<a href="">查看更多</a></div>
+    <div class="tp4">
+      <a href="spgm.html"><img src="img/picture/pic_left_4f.jpg" alt=""/></a>
+   </div>
+    <ul class="liebiao5">
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/ganai.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选A 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥388.00</span><del class="xg">616.00</del>
+                </div>
+            </a>
+        </li>
+
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/nanxinnaoxuaguan.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选A 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥515.00</span><del class="xg">823.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/nanjingzhun.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选C 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥635.00</span><del class="xg">1049.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/nvxinnaoxueg.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选D 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥698.00</span><del class="xg">1180.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/nvjingzhun.jpg" alt=""/>
+                </div>
+                <div  class="uname">爱康国宾 团体中层A 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥591.00</span><del class="xg">616.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                    <img src="img/picture/ruxian.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体高管A 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥750.00</span><del class="xg">1271.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                    <img src="img/picture/yesuan.jpg" alt=""/>
+                </div>
+                <div  class="uname">爱康国宾 团体高管B 体检套餐(男女单人用)</div>
+                <div>
+                    <span class="jg">￥980.00</span><del class="xg">1480.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                    <img src="img/picture/yetifeiai.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选D 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥755.00</span><del class="xg">1233.00</del>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="zhong5">
+    <div class="ex2">职场精英检<a href="">查看更多</a></div>
+    <div class="tp4">
+      <a href="spgm.html"><img src="img/picture/pic_left_1f.jpg" alt=""/></a>
+   </div>
+    <ul class="liebiao5">
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/chengrenyouxuan.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选A 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥388.00</span><del class="xg">616.00</del>
+                </div>
+            </a>
+        </li>
+
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/gaoduanbailing.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选A 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥515.00</span><del class="xg">823.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/jiankwuyou.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选C 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥635.00</span><del class="xg">1049.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/ruzhiwuyo.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选D 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥698.00</span><del class="xg">1180.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                <img src="img/picture/80hou.jpg" alt=""/>
+                </div>
+                <div  class="uname">爱康国宾 团体中层A 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥591.00</span><del class="xg">616.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                    <img src="img/picture/pic_fuqienai.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体高管A 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥750.00</span><del class="xg">1271.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                    <img src="img/picture/zhenaijingyiong.jpg" alt=""/>
+                </div>
+                <div  class="uname">爱康国宾 团体高管B 体检套餐(男女单人用)</div>
+                <div>
+                    <span class="jg">￥980.00</span><del class="xg">1480.00</del>
+                </div>
+            </a>
+        </li>
+        <li class="ext1">
+            <a href="spgm.html">
+                <div class="tp5" >
+                    <img src="img/picture/zhicbailing.jpg" alt=""/>
+                </div >
+                <div class="uname">爱康国宾 团体精选D 体检套餐(男女单人用) </div>
+                <div>
+                    <span class="jg">￥755.00</span><del class="xg">1233.00</del>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="btu">
+    <p class="text1">有人“管”的体检</p>
+    <p class="text2">您的健康问题，爱康一管到底</p>
+    <ul class="liebiao6">
+        <li>
+            <img src="img/picture/pic_ikangcare_1@1x.jpg" alt=""/>
+            <p class="text4">体检报告看不懂,<span class="text6"> 谁来管？</span></p>
+            <p class="text3"></p>
+            <p class="text5">窦性心律失常、屈光不正...类似这样的专业术语出现在体检报告中，很多人都是一头雾水。爱康有人“管”的体检iKangCare+计划可以为客户提供爱康APP、官方微信、全国体检中心、400电话以及外派上门服务，为客户提供专业、详尽的体检报告解读服务。</p>
+        </li>
+        <li>
+            <img src="img/picture/pic_ikangcare_2@1x.jpg" alt=""/>
+            <p class="text4">体检发现几个异常，<span class="text6">谁来管？</span></p>
+            <p class="text3"></p>
+            <p class="text5">癌症和心脑血管疾病的持续高发，让人们意识到了疾病早筛查、早确诊、早治疗的重要性。易感基因检测可以提前获知健康风险，指导体检项目个性化。体检后根据体检异常数据，爱康不仅可以提供针对性的深度筛查项目 (如超早期癌症筛查) ，还将不断升级阳性追踪体系，真正将有人“管”的体检落实到底。</p>
+        </li>
+        <li>
+            <img src="img/picture/pic_ikangcare_3@1x.jpg" alt=""/>
+            <p class="text4">体检后确诊重大疾病，<span class="text6">谁来管？</span></p>
+            <p class="text3"></p>
+            <p class="text5">在爱康体检后发现异常，爱康可以提供绿色就医通道推荐。如果确诊患癌，爱康免费提供任选全国三甲医院副主任及以上专家二次诊断及诊疗评估服务。此外，还可以通过爱康百洋沃森肿瘤智能会诊中心获得媲美知名优秀专家的智能化治疗方案。</p>
+        </li>
+
+    </ul>
+</div>
+<div id="btu2">
+     <p class="text7">集团品牌</p>
+     <p class="text8">IKANG GROUP</p>
+     <ul>
+         <li><a href=""><img src="img/picture/pic_brand_01@1x_2.png" alt=""/></a></li>
+         <li><a href=""><img src="img/picture/pic_brand_02@1x_2.png" alt=""/></a></li>
+         <li><a href=""><img src="img/picture/pic_brand_03@1x.png" alt=""/></a></li>
+         <li><a href=""><img src="img/picture/pic_brand_04@1x_2.png" alt=""/></a></li>
+         <li><a href=""><img src="img/picture/pic_brand_05@1x.png" alt=""/></a></li>
+         <li><a href=""><img src="img/picture/pic_brand_06@1x.png" alt=""/></a></li>
+         <li><a href=""><img src="img/picture/pic_brand_07@1x.png" alt=""/></a></li>
+         <li><a href=""><img src="img/picture/pic_brand_08@1x.png" alt=""/></a></li>
+         <li><a href=""><img src="img/picture/pic_brand_09@1x.png" alt=""/></a></li>
+         <li><a href=""><img src="img/picture/pic_brand_10@1x_2.png" alt=""/></a></li>
+         <li><a href=""><img src="img/picture/pic_brand_11@1x.png" alt=""/></a></li>
+         <li><a href=""><img src="img/picture/pic_brand_06@1x.png" alt=""/></a></li>
+     </ul>
+</div>
+<div id="btu2">
+    <p class="text7">爱康资讯</p>
+    <p class="text8">IKANG INFORMATION</p>
+    <div class="text9">
+        <h4>公司动态</h4>
+        <a href="">“尚医-爱康”携手公益捐赠签约仪式成功举行</a>
+        <a href="">数字赋能企业转型 爱康集团董事长兼CEO张黎刚</a>
+        <a href="">爱康集团荣获“德勤2019年度首届中国民企卓越管</a>
+        <a href="">爱康参与协办2019年“中国女性宫颈健康促进计划”</a>
+        <a href="">人工智能+精准医疗助力健康管理新篇章 爱康集团</a>
+        <a href="">查看全部></a>
+    </div>
+    <div class="text9">
+        <h4>健康绿皮书</h4>
+        <a href="">爱康集团×Airdoc×眼科大数据实验室｜第一个基于</a>
+        <a href="">爱康集团X诺辉健康 | 发布第一个基于分子诊断的</a>
+        <a href="">爱康集团 X 今日头条发布《2019年中国公务员健康绿书》</a>
+        <a href="">爱康集团发布《2018年中国企业家健康绿皮书》</a>
+        <a href="">爱康联合国家代谢性疾病临床医学研究中心（上海）发布代谢健康蓝皮书</a>
+        <a href="">查看全部></a>
+    </div>
+    <div class="tp6">
+          <h4>下载爱康官方AP</h4>
+        <img src="img/picture/pic_footer_qrcode@1x.jpg" alt=""/>
+    </div>
+     <div id="foolter1">
+         <div class="tp7">
+             <img src="img/picture/pic_logo_footer@1x.jpg" alt=""/>
+             <p>爱康集团是中国收入规模领先的中高端连锁体检与健康管理集团，是中国体检与健康管理行业第一家上市公司</p>
+         </div>
+         <div class="liebiao7">
+             <ul>
+                 <li><a href=""><h4>关于爱康</h4></a></li>
+                 <li><a href="">公司介绍</a></li>
+                 <li><a href="">管理团队</a></li>
+                 <li><a href="">爱康愿景、使命和价值观</a></li>
+                 <li><a href="">投资者关系</a></li>
+             </ul>
+
+             <ul>
+                 <li><a href=""><h4>新闻动态</h4></a></li>
+                 <li><a href="">公司动态</a></li>
+                 <li><a href="">健康绿皮书</a></li>
+                 <li><a href="">专题报道</a></li>
+             </ul>
+
+             <ul>
+                 <li><a href=""><h4>加萌合作</h4></a></li>
+                 <li><a href="">分销招募</a></li>
+                 <li><a href="">网站合作</a></li>
+                 <li><a href="">友情链接</a></li>
+             </ul>
+         </div>
+         <div class="text10">
+            <p  class="p1">4008-100-120</p>
+             <p class="p2">周一至周日，早6:00-晚12:00</p>
+         </div>
+     </div>
+    <div id="foolter2">
+        <p>© 2004-2019 爱康国宾健康体检管理集团有限公司版权所有</p>
+        <p>经营许可证编号：京ICP证041625号| 京ICP备07503198号-1| 京公网安备：110105000860| 注册号：110108007479743| 食品流通许可证编号：SP1101051310270433</p>
+        <p>互联网医疗保健信息服务：京卫网审[2013]第0005号| 京卫网审[2010]第0113号| 互联网药品信息服务证书编号：(京)-非经营性-2006-0022</p>
+        <p>本网站内容覆盖：爱康国宾健康体检管理集团有限公司| iKang Guobin Healthcare Group, Inc.| 爱康网健康科技（北京）有限公司| 上海爱康国宾集团有限公司及其他关联公司的相关信息</p>
+    </div>
+
+</div>
+</body>
+</html>

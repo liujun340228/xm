@@ -1,0 +1,235 @@
+*{margin: 0;padding: 0;}
+#top1{
+    background: #f5f5f5;
+    width:100%;
+}
+#top1>.leibiao1{
+    margin: 0 auto;
+    width: 1210px;
+    height: 38px;
+    line-height: 38px;
+    text-align: right;
+    color: #999;
+    font-family: SimSun;
+}
+a{
+    text-decoration: none !important;
+}
+span.text1{
+    float: left;
+}
+span.text1>a{
+    color:#444 ;
+}
+span.text1>a:hover{
+    color: #e95500;
+}
+ul.leibiao2 li{
+    float:right ;
+    line-height: 38px;
+    text-align: right;
+    list-style: none;
+    margin: 10px;
+}
+ul.leibiao2 li a{
+    float: right;
+    line-height: 38px;
+    text-align: right;
+    color: #000;
+}
+ul.leibiao2 li a:hover{
+    color: #e95500;
+}
+#top2 {
+    overflow: hidden;
+    padding: 17px 0 12px;
+    width: 1210px;
+    margin: 0 auto;
+}
+    #top2>img{
+    float: left;
+        width: 232px;
+}
+
+#top2>input.bd1{
+    height: 51px;
+    width: 430px;
+    line-height: 44px;
+    border: 2px solid #e76007;
+    float: left;
+    background-color: #fff;
+    text-indent:5px;
+    color: #000;
+    margin:6px 12px 0 132px;
+
+}
+#top2>input:hover{
+    border: 2px solid #e76007;
+}
+
+#top2>button{
+    background: #e76007;
+    color: #fff;
+    width: 134px;
+    height:51px;
+    line-height: 40px;
+    float: left;
+    font-weight: bold;
+    border: 0;
+     margin: 6px 0 0 -14px;
+}
+p.text2{
+    margin:0 auto;
+    color: #939393;
+    width: 488px;
+    line-height: 22px;
+}
+p.text2>a{
+    color: #939393;
+    font-family: SimSun;
+    padding: 0 5px;
+    vertical-align: baseline;
+}
+#zhong{
+    width: 100%;
+    height: 40px;
+    background-color: #e76007;
+    position: relative;
+    z-index: 101;
+}
+div.dropdown{
+    width: 230px;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    color: #fefefe;
+    background-color: #de4e00;
+    cursor: pointer;
+    margin:0 0 0 75px;
+}
+button.btn{
+   background-color: #de4e00;
+   border: 0;
+   margin-top: -2px;
+}
+button.btn:hover{
+    background-color: #de4e00;
+    border: 0;
+}
+img.tp3{
+    margin-left: 8px;
+}
+ul.dropdown-menu>li{
+    margin-left: 12px;
+    cursor: pointer;
+    padding-left: 30px;
+    
+}
+ 
+ul.dropdown-menu>li>a{
+    cursor: pointer;
+   font-size: 1rem;
+    color: #212529;
+}
+ul.dropdown-menu>li>a:hover{
+     color:#e76007
+}
+#zhong2{
+  float: left;
+   position: absolute;
+    top: 0;
+    left: 348px;
+    width: 979px;
+    height: 40px;
+    
+}
+#zhong2>ul{
+     margin-left: 117px;
+     text-align: center;
+      margin-top:-18px;
+}
+
+#zhong2>ul>li{
+     float: left;
+     list-style: none;
+     padding: 30px;
+} 
+#zhong2>ul>li>a{
+    color:#fefefe !important;
+    font-size: 18px !important;
+    height: 40px;
+    line-height: 24px;
+  }
+  #zhong3{
+    width: 550px;
+    height: 170px;
+    margin: 50px auto 0;
+    background: url(../img/images/empty.png) no-repeat 10px 14px
+  }
+  #zhong3>p{
+    color: #313131;
+    font-size: 20px;
+    font-family: 'microsoft yahei';
+    padding: 100px 0 0 180px;
+    line-height: 22px;
+  }
+  #zhong3>p>a{
+    color: #f47f31;
+    font-size: 20px;
+    font-family: 'microsoft yahei';
+    border-bottom: 1px solid #f47f31;
+    padding-bottom: 1px;
+    line-height: 22px
+  }
+ #zhong4{
+    height: 470px;
+ }
+ #bottom{
+     height: 168px;
+     background-color: #f1f1f1;
+     border-bottom: 1px solid #d0d0d0;
+ }
+ div.tp5{
+     margin: 0 auto;
+     width: 1210px;
+ }
+
+ #bottom2{
+     height:146px;
+     padding-top:40px;
+ }
+ .bottom3{
+     margin: 0  auto;
+     width: 1210px;
+ }
+ div.dd{ 
+    width: 229px;
+    float: left;
+    text-align: center;
+    background-position: center left;
+    border-right: 1px  solid #d4d5d5;
+    margin: 0 auto;
+ }
+ div.dd>h2{
+    margin-top: 12px;
+    margin-bottom: 8px;
+    color: #3a3a3a;
+    font-weight: normal;
+     font-size: 20px;
+ }
+  div.dd>p{
+    margin-top: 2px;
+    line-height: 20px;
+    font-size: 14px;
+}
+ div.dd>p>a{
+    color: #3a3a3a;
+ }
+ div.dd>p>a:hover{
+    color:#e76007;
+ }
+div.dd2 img{
+    margin-left: 8px;
+}
+
+ 
